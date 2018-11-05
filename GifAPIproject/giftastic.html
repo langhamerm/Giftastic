@@ -11,73 +11,51 @@
 <body>
     <div class="container">
         <div class="row">
-            <div id="button-dump"></div>
+            <form class="example" action="action_page.php">
+                <input id="addGif" type="text" placeholder="Add Doggo!" name="search">
+                <button id="gifAdder" type="submit"><i class="fa fa-plus"></i></button>
+            </form>
         </div>
         <div class="row">
-            <div class="col-lg-8">
-                <div id="gif-dump"></div>
+            <div class="col-lg-12">
+                <div id="button-dump"></div>
             </div>
-            <div class="col-lg-4">
-                <form class="example" action="action_page.php">
-                    <input id="addGif" type="text" placeholder="Search.." name="search">
-                    <button id="gifAdder" type="submit"><i class="fa fa-search"></i></button>
-                </form>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="gif-dump"></div>
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
 
-        // var gifCounter = 0;
-
-        // $("#gifAdder").on("click", function(event){
-        //     event.preventDefault();
-
-        //     var gif = $("#addGif").val().trim();
-
-        //     gifs.push(gif);
-
-        //     renderButtons();
-
-        //     displayGif();
-        // });
-
-        var gifs = ["Corgi", "Pug", "Chihuahua", "Beagle"];
+        var gifs = ["Corgi", "Pug", "Chihuahua", "Golden Retriever"];
         gifCounter = 0;
 
         function displayGif() {
             var gifInfo = $(this).attr("data-name");
 
-            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Av8nWlDwB1x6SlEjjp51PrXZkbqWMiu4&q=" + gifInfo + "&limit=10&offset=0&rating=G&lang=en";
+            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Av8nWlDwB1x6SlEjjp51PrXZkbqWMiu4&q=" + gifInfo + "&limit=50&offset=0&rating=G&lang=en";
 
             $.ajax({ url: queryURL, method: "GET" })
                 .then(function (response) {
                     console.log(response);
-                    var rating = $("<h1>");
+                    var rating = $("<h3 class='rounded float-left'>");
 
 
-                    var poster = $("<img>");
+                    var poster = $("<img class='rounded float-left' alt='Responsive image'>");
 
 
                     if (gifCounter < response.data.length) {
                         gifCounter++;
                         console.log(poster);
-                        poster.attr("src", response.data[gifCounter].images.original.url);
+                        poster.attr("src", response.data[gifCounter].images.fixed_height.url);
                         rating.text("Rating: " + response.data[gifCounter].rating);
                         $("#gif-dump").prepend(rating, poster);
                         console.log(gifInfo);
 
                     } else (gifCounter = 0);
-
-                    // for (i = 0; i < response.data.length; i++){
-                    // console.log(poster);
-                    // poster.attr("src", response.data[i].images.original.url);
-                    // rating.text("Rating: " + response.data[i].rating);
-                    // $("#gif-dump").prepend(rating, poster);
-                    // console.log(gifInfo);
-                    // };   
-
-
                 });
 
         };
