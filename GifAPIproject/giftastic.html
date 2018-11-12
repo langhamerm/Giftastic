@@ -44,19 +44,37 @@
                     var rating = $("<h3 class='rounded float-left'>");
 
 
-                    var poster = $("<img class='rounded float-left' alt='Responsive image'>");
+                    var poster = $("<img id='giffy' class='rounded float-left' alt='Responsive image'>");
+
+
 
 
                     if (gifCounter < response.data.length) {
                         gifCounter++;
                         console.log(poster);
-                        poster.attr("src", response.data[gifCounter].images.fixed_height.url);
+                        poster.attr("src", response.data[gifCounter].images.fixed_height_small.url);
                         rating.text("Rating: " + response.data[gifCounter].rating);
-                        $("#gif-dump").prepend(rating, poster);
+                        // var postRat = $(`<div classs="gifBox">${rating}${poster}</div>`);
+                        $("#gif-dump").prepend(poster, rating);
                         console.log(gifInfo);
 
                     } else (gifCounter = 0);
                 });
+            $("#giffy").on("click", function () {
+                // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+                var state = $(poster).attr("data-state");
+                // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+                // Then, set the image's data-state to animate
+                // Else set src to the data-still value
+                if (state === "still") {
+                    $(poster).attr("src", $(poster).attr("data-animate"));
+                    $(poster).attr("data-state", "animate");
+                } else {
+                    $(poster).attr("src", $(poster).attr("data-still"));
+                    $(poster).attr("data-state", "still");
+                }
+            });
+
 
         };
 
@@ -87,6 +105,12 @@
         $(document).on("click", ".gif", displayGif)
 
         renderButtons();
+
+
+
+        //Questions: 1.Fix Rating to top of image? Create new div for rating and poster so they are in the same div.
+        //           2. Display 10 images at once instead of one? LOOP
+        //           3. Loads unanimated gifs and upon click animate them? Exercise 15 week 6       
 
 
     </script>
