@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Giftastic</title>
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 id="text">TV Shows</h1>
+                <p id="text">Click a button to add Gifs from one of these shows or add a show of your own!</p>
+                <div id="button-area"></div>
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="tv-input" placeholder="Add a show!">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <button type="submit" class="btn btn-danger" id="add-show">Add Show!</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="panel panel-default" id="panelBody">
+                <div class="panel-body">
+                    <div id="tvView"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="assets/gifgif.js"></script>
+    </body>
+</html>
