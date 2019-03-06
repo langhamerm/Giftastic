@@ -31,7 +31,7 @@ function renderButtons() {
     $("#button-area").empty();
 
     for (var i = 0; i < tvShows.length; i++) {
-        var newButton = $("<button class='btn btn-danger'>");
+        var newButton = $("<button class='btn btn-success'>");
         newButton.addClass("show");
         newButton.attr("data-name", tvShows[i]);
         newButton.text(tvShows[i]);

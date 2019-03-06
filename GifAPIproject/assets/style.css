@@ -1,5 +1,5 @@
 body {
-	background-image: url("https://i.redd.it/lwwt86ci5anz.jpg");
+	background-image: url("https://i.pinimg.com/originals/94/a4/4e/94a44e36e36278d416c029ad1a4449ea.jpg");
 }
 .btn {
 	margin-right: 10px;
@@ -18,24 +18,25 @@ img {
 
 }
 #gifPanel {
-	border: solid #ff4136 2px;
+	border: solid lightgreen 2px;
 }
 #jumbo {
 	background-color: black;
 	border: none;
 }
 #text {
-	color: white;
+	color: black;
+	text-shadow: lightgreen 2px 2px;
 }
 #panelBody {
 	background-color: black;
 	border: 0;
 	box-shadow: none;
-	border-bottom: solid #ff4136 5px;
+	border-bottom: solid lightgreen 5px;
 }
 #rating {
 	margin: 10px;
-	color: #ff4136;
+	color: lightgreen;
 }
 #tvView {
 	height: 100%;
