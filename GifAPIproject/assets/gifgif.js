@@ -2,7 +2,7 @@ var tvShows = ["Spongebob", "Dragonball Z", "Pokemon"];
 
 function displayGif() {
     var gif = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=9RiK7hcLpu9hEc2gAW5zGSOxfcx3DKDS&q=" + gif + "&limit=10&offset=0&rating=PG-13&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=9RiK7hcLpu9hEc2gAW5zGSOxfcx3DKDS&q=" + gif + "&limit=12&offset=0&rating=PG-13&lang=en";
 
     $.ajax({ url: queryURL, method: "GET" }).done(function (response) {
         console.log(response);

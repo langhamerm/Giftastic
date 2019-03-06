@@ -1,5 +1,5 @@
 body {
-	background-image: url("https://i.pinimg.com/originals/94/a4/4e/94a44e36e36278d416c029ad1a4449ea.jpg");
+	background-image: url("https://i.pinimg.com/originals/97/86/ec/9786ec883756c755df35a331ff902f3b.png");
 }
 .btn {
 	margin-right: 10px;
@@ -15,6 +15,9 @@ form, input {
 }
 img {
 	margin: 10px;
+	float: left;
+	width: 250px;
+	height: 175px;
 
 }
 #gifPanel {
